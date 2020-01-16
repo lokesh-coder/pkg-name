@@ -33,7 +33,7 @@
 
 <main class="flex h-screen items-center justify-center flex-col">
   <Styles />
-  <div class="w-4/12 mx-auto">
+  <div class="lg:w-4/12 mx-auto">
     <div class="text-center mb-10">
       <h3 class="text-6xl text-blue-600 font-display">pkg-name</h3>
       <h3 class="text-base text-gray-500">
