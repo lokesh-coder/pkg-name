@@ -5,11 +5,12 @@
 
   /* purgecss start ignore */
 
-  @import url("https://fonts.googleapis.com/css?family=Rubik:400,500,700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Alata|Alfa+Slab+One|Sulphur+Point:300,400,700&display=swap");
   @import url("https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css");
 
   body {
-    @apply .bg-gray-200;
+    @apply .bg-gray-100;
+    transition: all 0.5s ease;
   }
 
   input::placeholder {

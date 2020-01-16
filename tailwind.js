@@ -4,7 +4,8 @@ module.exports = {
       colors: {}
     },
     fontFamily: {
-      body: ["Rubik"]
+      body: ["Rubik"],
+      display: ["Sulphur Point"]
     }
   },
   variants: {
