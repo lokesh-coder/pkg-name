@@ -1,6 +1,7 @@
 <script>
   import { fly } from "svelte/transition";
   import Styles from "./Styles.svelte";
+  import Search from "./Search.svelte";
   import Block from "./Block.svelte";
   let results;
   let error;
@@ -12,11 +13,10 @@
     return Object.entries(data);
   };
 
-  const checkAvailability = async (keyCode, names) => {
-    if (keyCode != 13) return;
+  const checkAvailability = async keyword => {
     try {
       const response = await fetch(
-        `https://pkg-name-api.now.sh/check?pkg=${names}`,
+        `https://pkg-name-api.now.sh/check?pkg=${keyword}`,
         {
           method: "GET"
         }
@@ -28,6 +28,11 @@
       error = e;
       results = null;
     }
+  };
+
+  const searchHandler = ({ detail: { query } }) => {
+    console.log("you searchbed for", query);
+    checkAvailability(query).then(x => {});
   };
 </script>
 
@@ -41,17 +46,8 @@
       </h3>
     </div>
 
-    <div
-      class="relative flex items-center bg-gray-300 focus-within:shadow-2xl
-      rounded py-2 focus-within:bg-white focus-within:outline-none
-      focus-within:border-1 border-gray-500">
-      <i class="ri-search-line absolute mx-5 text-blue-800 text-xl" />
-      <input
-        autofocus
-        placeholder="type package names"
-        on:keydown={e => checkAvailability(e.keyCode, e.target.value)}
-        class=" py-2 px-12 w-full border-none rounded text-blue-800
-        focus:outline-none bg-transparent text-xl font-display tracking-wider" />
+    <div>
+      <Search on:query={searchHandler} />
     </div>
 
     <div class="text-center my-6 text-sm text-gray-500">
