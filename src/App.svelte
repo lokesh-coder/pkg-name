@@ -3,14 +3,13 @@
   import Styles from "./Styles.svelte";
   import Search from "./Search.svelte";
   import Block from "./Block.svelte";
-  let results;
+  let result;
+  let input = "";
   let error;
 
-  $: formattedResults = formatResults(results);
-
-  const formatResults = (data = {}) => {
+  const formatResult = res => {
     if (!data) return;
-    return Object.entries(data);
+    return Object.entries(data)[0];
   };
 
   const checkAvailability = async keyword => {
@@ -21,12 +20,12 @@
           method: "GET"
         }
       );
-      results = await response.json();
+      result = await response.json();
       error = null;
     } catch (e) {
       console.log(e);
       error = e;
-      results = null;
+      result = null;
     }
   };
 
@@ -36,39 +35,36 @@
   };
 </script>
 
-<main class="flex h-screen items-center justify-center flex-col">
+<main class="flex h-screen flex-col">
   <Styles />
-  <div class="lg:w-4/12 mx-auto">
-    <div class="text-center mb-10">
-      <h3 class="text-6xl text-blue-600 font-display">pkg-name</h3>
-      <h3 class="text-base text-gray-500">
-        check NPM package and org name availability
-      </h3>
+
+  <div class="bg-blue-100 py-12 px-6 lg:px-0">
+    <div class="lg:w-4/12 mx-auto">
+      <Search bind:keyword={input} on:query={searchHandler} />
     </div>
-
-    <div>
-      <Search on:query={searchHandler} />
-    </div>
-
-    <div class="text-center my-6 text-sm text-gray-500">
-      saperate with comma. example,
-      <span class="text-blue-900">my-pkg,@my-org,random-name</span>
-    </div>
-
-    {#if error}
-      <div class="text-red-500 text-center my-4">
-        Something went wrong. {error}
-      </div>
-    {/if}
-
-    {#if formattedResults}
-      <div class="">
-        {#each formattedResults as res}
-          <div transition:fly={{ y: 200, duration: 500 }}>
-            <Block name={res[0]} isSuccess={res[1]} />
-          </div>
-        {/each}
-      </div>
-    {/if}
   </div>
+  <div class="flex flex-1 flex-col items-center justify-center ">
+    <div class="lg:w-4/12 mx-auto">
+      {#if input.length == 0}
+        <div class="text-center mb-2">
+          <h3 class="text-6xl text-blue-600 font-display">pkg-name</h3>
+          <h3 class="text-base text-gray-500">
+            check NPM package and org name availability
+          </h3>
+        </div>
+      {/if}
+
+      {#if result && result.error}
+        <div class="text-red-500 text-center my-4">{result.error}</div>
+      {/if}
+
+      {#if result && !result.error}
+        <div transition:fly={{ y: 200, duration: 500 }}>
+          <Block data={result} />
+        </div>
+      {/if}
+    </div>
+
+  </div>
+
 </main>

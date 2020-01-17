@@ -1,21 +1,19 @@
 <script>
-  export let name;
-  export let isSuccess = false;
+  export let data;
 </script>
 
-<div
-  class={`flex my-4 items-center justify-between px-4 py-2 rounded shadow-lg ${isSuccess ? 'bg-teal-500' : 'bg-pink-600'}`}>
-  {#if isSuccess}
-    <i class="ri-checkbox-circle-line text-teal-300 text-xl" />
+<div class={`flex my-4 items-center justify-between px-4 py-2 flex-col`}>
+  <span
+    class={`text-white text-6xl font-bold flex-1 ml-2 ${data.available ? 'text-teal-500' : 'text-pink-600'}`}>
+    {data.name}
+  </span>
+  {#if data.available}
+    <span class="text-gray-500 uppercase text-xs font-medium">
+      package name available!
+    </span>
   {:else}
-    <i class="ri-close-circle-line text-pink-300 text-xl" />
-  {/if}
-  <span class="text-white text-xl flex-1 ml-2">{name}</span>
-  {#if isSuccess}
-    <span class="text-teal-100 uppercase text-xs font-medium">available</span>
-  {:else}
-    <span class="text-pink-100 uppercase text-xs font-medium">
-      not available
+    <span class="text-gray-900 uppercase text-xs font-medium">
+      OOPs! name already taken!
     </span>
   {/if}
 </div>

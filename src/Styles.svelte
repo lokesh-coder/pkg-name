@@ -10,6 +10,7 @@
 
   body {
     @apply .bg-gray-100;
+    padding: 0;
     transition: all 0.5s ease;
   }
 
