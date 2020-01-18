@@ -1,51 +1,44 @@
 <script>
-  import { blur } from "svelte/transition";
-  import If from "./If.svelte";
   import Loader from "./Loader.svelte";
+  export let theme = "default";
   export let title;
   export let subtitle;
-  export let theme = "default";
-  export let isLoading = false;
 
   const themes = {
+    loading: "gray-500",
     success: "teal-600",
     failure: "pink-600",
     default: "blue-600",
     error: "red-500"
   };
+
+  const icons = {
+    success: "checkbox-circle",
+    failure: "close-circle",
+    error: "error-warning"
+  };
+
+  const commonCls = "w-16 h-16 text-6xl flex items-center";
 </script>
 
 <div class="text-center mb-2">
   <div class="mx-auto text-center flex items-center justify-center">
-    <If con={isLoading}>
+
+    {#if theme == 'loading'}
       <Loader />
-    </If>
-    <If con={!isLoading}>
-      <If con={theme == 'success'}>
-        <i
-          class="ri-checkbox-circle-fill w-16 h-16 text-6xl text-teal-600 flex
-          items-center" />
-      </If>
-      <If con={theme == 'failure'}>
-        <i
-          class="ri-close-circle-fill w-16 flex h-16 text-6xl text-pink-600 flex
-          items-center" />
-      </If>
-      <If con={theme == 'error'}>
-        <i
-          class="ri-error-warning-fill w-16 flex h-16 text-6xl text-red-500 flex
-          items-center" />
-      </If>
-      <If con={theme == 'default'}>
-        <span class=" w-16 h-16 flex p-1">
-          <span
-            class="bg-blue-800 rounded-full text-white text-5xl block w-full
-            h-full flex items-center justify-center font-semibold leading-none">
-            P
-          </span>
+    {:else if theme != 'default'}
+      <i class="ri-{icons[theme]}-fill text-{themes[theme]} {commonCls}" />
+    {:else}
+      <span class=" w-16 h-16 flex p-1">
+        <span
+          class="bg-{themes[theme]} rounded-full text-white text-5xl block
+          w-full h-full flex items-center justify-center font-semibold
+          leading-none">
+          P
         </span>
-      </If>
-    </If>
+      </span>
+    {/if}
+
   </div>
 
   <h3

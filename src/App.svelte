@@ -3,7 +3,6 @@
   import Styles from "./Styles.svelte";
   import Banner from "./Banner.svelte";
   import Search from "./Search.svelte";
-  import If from "./If.svelte";
   import Loader from "./Loader.svelte";
 
   let result = { isLoading: false, error: null };
@@ -15,42 +14,48 @@
   );
 
   const getMeta = result => {
-    const successData = {
+    const successState = {
       title: input,
       subtitle: "Package name available",
-      theme: "success",
-      isLoading: result.isLoading
+      theme: "success"
     };
-    const failureData = {
+    const failureState = {
       title: input,
       subtitle: "Package not available",
-      theme: "failure",
-      isLoading: result.isLoading
+      theme: "failure"
     };
-    const defaultData = {
+    const defaultState = {
       title: "pkg-name",
       subtitle: "check NPM package and org name availability",
-      theme: "default",
-      isLoading: result.isLoading
+      theme: "default"
     };
-    const errorData = {
+    const errorState = {
       title: "Got a error",
       subtitle: result.error,
-      theme: "error",
-      isLoading: result.isLoading
+      theme: "error"
     };
 
+    const loadingState = {
+      title: "...",
+      subtitle: "Loading please wait",
+      theme: "loading"
+    };
+
+    if (result.isLoading) {
+      return loadingState;
+    }
+
     if (input.length == 0) {
-      return defaultData;
+      return defaultState;
     }
     if (result.error) {
-      return errorData;
+      return errorState;
     }
     if (!result.error && result.available) {
-      return successData;
+      return successState;
     }
     if (!result.error && !result.available) {
-      return failureData;
+      return failureState;
     }
   };
 

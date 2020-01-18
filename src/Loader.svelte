@@ -35,42 +35,26 @@
   }
 
   span:nth-child(1) .spin {
-    /* animation-delay: 0s; */
     animation-duration: 1500ms;
   }
   span:nth-child(2) .spin {
-    /* animation-delay: 0.2s; */
     animation-duration: 600ms;
   }
   span:nth-child(3) .spin {
-    /* animation-delay: 0.3s; */
     animation-duration: 700ms;
   }
   span:nth-child(4) .spin {
-    /* animation-delay: 0.4s; */
     animation-duration: 800ms;
   }
   span:nth-child(5) .spin {
-    /* animation-delay: 0.5s; */
     animation-duration: 900ms;
   }
 </style>
 
 <div>
-  <span>
-    <i class="ri-loader-5-fill text-6xl spin text-indigo-500" />
-  </span>
-  <span>
-    <i class="ri-loader-5-fill text-6xl spin text-blue-500" />
-  </span>
-  <span>
-    <i class="ri-loader-5-fill text-6xl spin text-pink-500" />
-  </span>
-  <span>
-    <i class="ri-loader-5-fill text-6xl spin text-orange-500" />
-  </span>
-  <span>
-    <i class="ri-loader-5-fill text-6xl spin text-green-500" />
-  </span>
-
+  {#each ['indigo', 'blue', 'pink', 'orange', 'green'] as item}
+    <span>
+      <i class="ri-loader-5-fill text-6xl spin text-{item}-500" />
+    </span>
+  {/each}
 </div>
