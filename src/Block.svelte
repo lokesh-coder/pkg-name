@@ -4,7 +4,7 @@
 
 <div class={`flex my-4 items-center justify-between px-4 py-2 flex-col`}>
   <span
-    class={`text-white text-6xl font-bold flex-1 ml-2 ${data.available ? 'text-teal-500' : 'text-pink-600'}`}>
+    class={`text-white text-6xl font-bold font-display tracking-tight flex-1 ml-2 ${data.available ? 'text-teal-500' : 'text-pink-600'}`}>
     {data.name}
   </span>
   {#if data.available}

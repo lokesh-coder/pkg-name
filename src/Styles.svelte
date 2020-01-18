@@ -9,39 +9,45 @@
   @import url("https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css");
 
   body {
-    @apply .bg-gray-100;
     padding: 0;
+    transition: all 0.5s ease;
+  }
+
+  .smooth {
     transition: all 0.5s ease;
   }
 
   input::placeholder {
     @apply .text-gray-500 !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    line-height: 50px;
+    vertical-align: middle;
+    position: relative;
+    top: -5px;
+  }
+  /* 
+  .spin {
+    display: inline-block;
+    transition: all 0.5s ease;
+    animation-name: rotate;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-direction: inherit;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-play-state: running;
   }
 
-  .icon-search {
-    box-sizing: border-box;
-    position: relative;
-    display: block;
-    transform: scale(var(--ggs, 1));
-    width: 16px;
-    height: 16px;
-    border: 2px solid;
-    border-radius: 100%;
-    margin-top: -4px;
-  }
-  .icon-search::after {
-    content: "";
-    display: block;
-    box-sizing: border-box;
-    position: absolute;
-    border-radius: 3px;
-    width: 2px;
-    height: 8px;
-    background: currentColor;
-    transform: rotate(-45deg);
-    top: 10px;
-    left: 12px;
-  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } */
 
   /* purgecss end ignore */
 </style>

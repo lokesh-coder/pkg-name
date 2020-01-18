@@ -10,16 +10,24 @@
 </script>
 
 <div
-  class="relative flex items-center bg-white rounded py-2
+  class="relative flex items-center bg-white rounded-full
   focus-within:outline-none border-2 border-blue-200
-  focus-within:border-blue-400 py-4">
-  <i class="ri-search-line absolute mx-5 text-blue-800 text-xl" />
+  focus-within:border-blue-400 py-2">
+  <i class="ri-search-line absolute mx-5 text-blue-500 text-xl" />
   <input
-    placeholder="Type here"
+    placeholder="package name..."
     on:keyup={handler}
     bind:value={keyword}
+    spellcheck="false"
     class="w-full border-none rounded text-blue-800 focus:outline-none
-    bg-transparent tracking-wider p-1 px-12 font-medium" />
+    bg-transparent tracking-tight p-1 px-12 font-bold text-3xl leading-none
+    text-center" />
+  {#if keyword.length >= 1}
+    <i
+      class="ri-close-circle-fill absolute mx-5 text-gray-400 text-2xl right-0
+      cursor-pointer hover:text-red-500"
+      on:click={() => (keyword = '')} />
+  {/if}
 
 </div>
 
