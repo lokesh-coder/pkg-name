@@ -3,7 +3,6 @@
   export let keyword;
   const dispatch = createEventDispatcher();
   const handler = e => {
-    console.log(e.target.value);
     let query = e.target.value;
     dispatch("query", { query });
   };
@@ -33,5 +32,5 @@
 
 <div class="text-center my-1 text-sm text-gray-500">
   for org name use '@' prefix
-  <span class="text-blue-900">my-pkg,@my-org,random-name</span>
+  <span class="text-blue-900">my-pkg, @my-org</span>
 </div>
