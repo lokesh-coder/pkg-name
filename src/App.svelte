@@ -21,16 +21,16 @@
     };
     const failureState = {
       title: input,
-      subtitle: "Package not available",
+      subtitle: "Package name already exists!",
       theme: "failure"
     };
     const defaultState = {
       title: "pkg-name",
-      subtitle: "check NPM package and org name availability",
+      subtitle: "Check NPM package and org name availability",
       theme: "default"
     };
     const errorState = {
-      title: "Got a error",
+      title: "Error",
       subtitle: result.error,
       theme: "error"
     };
@@ -60,7 +60,7 @@
   $: res = getMeta(result, input);
 </script>
 
-<main class="flex h-screen flex-col">
+<main class="flex h-full flex-col">
   <Styles />
   <div class="bg-indigo-100 py-12 px-6 lg:px-0">
     <div class="lg:w-4/12 mx-auto">
@@ -68,7 +68,7 @@
     </div>
   </div>
   <div class="flex flex-1 flex-col items-center justify-center border-t-4">
-    <div class="lg:w-4/12 mx-auto">
+    <div class="lg:w-4/12 mx-auto text-center">
       <Banner {...res} />
     </div>
   </div>

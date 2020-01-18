@@ -12,7 +12,7 @@
   class="relative flex items-center bg-white rounded-full
   focus-within:outline-none border-2 border-blue-200
   focus-within:border-blue-400 py-2">
-  <i class="ri-search-line absolute mx-5 text-blue-500 text-xl" />
+  <i class="ri-search-line absolute mx-4 text-blue-400 text-2xl" />
   <input
     placeholder="package name..."
     on:keyup={handler}
@@ -23,7 +23,7 @@
     text-center" />
   {#if keyword.length >= 1}
     <i
-      class="ri-close-circle-fill absolute mx-5 text-gray-400 text-2xl right-0
+      class="ri-close-circle-fill absolute mx-4 text-gray-400 text-3xl right-0
       cursor-pointer hover:text-red-500"
       on:click={() => (keyword = '')} />
   {/if}

@@ -21,27 +21,25 @@
   const commonCls = "w-16 h-16 text-6xl flex items-center";
 </script>
 
-<div class="text-center mb-2">
-  <div class="mx-auto text-center flex items-center justify-center">
+<div class="mx-auto text-center flex items-center justify-center">
 
-    {#if theme == 'loading'}
-      <Loader />
-    {:else if theme != 'default'}
-      <i class="ri-{icons[theme]}-fill {themes[theme]} {commonCls}" />
-    {:else}
-      <span class=" w-16 h-16 flex p-1">
-        <span
-          class="bg-blue-600 rounded-full text-white text-5xl block w-full
-          h-full flex items-center justify-center font-semibold leading-none">
-          P
-        </span>
+  {#if theme == 'loading'}
+    <Loader />
+  {:else if theme != 'default'}
+    <i class="ri-{icons[theme]}-fill {themes[theme]} {commonCls}" />
+  {:else}
+    <span class=" w-16 h-16 flex p-1">
+      <span
+        class="bg-blue-600 rounded-full text-white text-5xl block w-full h-full
+        flex items-center justify-center font-semibold leading-none">
+        P
       </span>
-    {/if}
+    </span>
+  {/if}
 
-  </div>
-
-  <h3 class=" text-6xl font-bold font-display tracking-tight {themes[theme]}">
-    {title}
-  </h3>
-  <p class="text-base text-gray-600">{subtitle}</p>
 </div>
+
+<h3 class=" text-6xl font-bold font-display tracking-tight {themes[theme]}">
+  {title}
+</h3>
+<p class="text-base text-gray-600">{subtitle}</p>
