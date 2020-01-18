@@ -62,14 +62,14 @@
 
 <main class="flex h-full flex-col">
   <Styles />
+  <div class="flex flex-1 flex-col items-center justify-center border-b-4">
+    <div class="lg:w-4/12 mx-auto text-center">
+      <Banner {...res} />
+    </div>
+  </div>
   <div class="bg-indigo-100 py-12 px-6 lg:px-0">
     <div class="lg:w-4/12 mx-auto">
       <Search bind:keyword={input} on:query={x => sub$.next(x.detail.query)} />
-    </div>
-  </div>
-  <div class="flex flex-1 flex-col items-center justify-center border-t-4">
-    <div class="lg:w-4/12 mx-auto text-center">
-      <Banner {...res} />
     </div>
   </div>
 </main>
