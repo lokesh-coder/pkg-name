@@ -34,7 +34,6 @@
       subtitle: result.error,
       theme: "error"
     };
-
     const loadingState = {
       title: "...",
       subtitle: "Loading please wait",
@@ -44,7 +43,6 @@
     if (result.isLoading) {
       return loadingState;
     }
-
     if (input.length == 0) {
       return defaultState;
     }
@@ -64,19 +62,14 @@
 
 <main class="flex h-screen flex-col">
   <Styles />
-
   <div class="bg-indigo-100 py-12 px-6 lg:px-0">
     <div class="lg:w-4/12 mx-auto">
       <Search bind:keyword={input} on:query={x => sub$.next(x.detail.query)} />
     </div>
   </div>
-  <div class={`flex flex-1 flex-col items-center justify-center  border-t-4`}>
+  <div class="flex flex-1 flex-col items-center justify-center border-t-4">
     <div class="lg:w-4/12 mx-auto">
-      <Banner
-        isLoading={res.isLoading}
-        theme={res.theme}
-        title={res.title}
-        subtitle={res.subtitle} />
+      <Banner {...res} />
     </div>
   </div>
 </main>
