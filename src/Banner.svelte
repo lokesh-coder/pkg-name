@@ -39,7 +39,5 @@
 
 </div>
 
-<h3 class=" text-6xl font-bold font-display tracking-tight {themes[theme]}">
-  {title}
-</h3>
+<h3 class=" text-6xl font-bold tracking-tight {themes[theme]}">{title}</h3>
 <p class="text-base text-gray-600">{subtitle}</p>
