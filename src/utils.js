@@ -1,5 +1,5 @@
 import { ajax } from "rxjs/ajax";
-import { Subject, combineLatest, of } from "rxjs";
+import { Subject } from "rxjs";
 import {
   tap,
   switchMap,

@@ -1,7 +1,7 @@
 const tailwindcss = require("tailwindcss");
 const production = !process.env.ROLLUP_WATCH;
 
-// only needed if you want to purge
+
 const purgecss = require("@fullhuman/postcss-purgecss")({
   content: ["./src/**/*.html", "./src/**/*.svelte"],
 
@@ -12,9 +12,8 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
 
 module.exports = {
   plugins: [
+    require("postcss-import")(),
     tailwindcss("./tailwind.js"),
-
-    // only needed if you want to purge
     ...(production ? [purgecss] : [])
   ]
 };
