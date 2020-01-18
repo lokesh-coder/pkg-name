@@ -5,11 +5,11 @@
   export let subtitle;
 
   const themes = {
-    loading: "gray-500",
-    success: "teal-600",
-    failure: "pink-600",
-    default: "blue-600",
-    error: "red-500"
+    loading: "text-gray-500",
+    success: "text-teal-600",
+    failure: "text-pink-600",
+    default: "text-blue-600",
+    error: "text-red-500"
   };
 
   const icons = {
@@ -27,13 +27,12 @@
     {#if theme == 'loading'}
       <Loader />
     {:else if theme != 'default'}
-      <i class="ri-{icons[theme]}-fill text-{themes[theme]} {commonCls}" />
+      <i class="ri-{icons[theme]}-fill {themes[theme]} {commonCls}" />
     {:else}
       <span class=" w-16 h-16 flex p-1">
         <span
-          class="bg-{themes[theme]} rounded-full text-white text-5xl block
-          w-full h-full flex items-center justify-center font-semibold
-          leading-none">
+          class="bg-blue-600 rounded-full text-white text-5xl block w-full
+          h-full flex items-center justify-center font-semibold leading-none">
           P
         </span>
       </span>
@@ -41,8 +40,7 @@
 
   </div>
 
-  <h3
-    class=" text-6xl font-bold font-display tracking-tight text-{themes[theme]}">
+  <h3 class=" text-6xl font-bold font-display tracking-tight {themes[theme]}">
     {title}
   </h3>
   <p class="text-base text-gray-600">{subtitle}</p>

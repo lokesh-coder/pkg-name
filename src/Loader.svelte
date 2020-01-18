@@ -52,9 +52,9 @@
 </style>
 
 <div>
-  {#each ['indigo', 'blue', 'pink', 'orange', 'green'] as item}
+  {#each ['text-indigo-500', 'text-blue-500', 'text-pink-500', 'text-orange-500', 'text-green-500'] as item}
     <span>
-      <i class="ri-loader-5-fill text-6xl spin text-{item}-500" />
+      <i class="ri-loader-5-fill text-6xl spin {item}" />
     </span>
   {/each}
 </div>
