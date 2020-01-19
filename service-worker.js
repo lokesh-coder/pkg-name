@@ -35,7 +35,7 @@ self.addEventListener("activate", e => {
   );
 });
 self.addEventListener("fetch", e => {
-  if (e.request.method !== 'GET') return;
+  if (e.request.url.includes('https://pkg-name-api.now.sh/check')) return;
   e.respondWith(
     (async function() {
       const response = await caches.match(e.request);
