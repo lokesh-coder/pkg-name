@@ -1,6 +1,5 @@
 var cacheName = "sgtoilet-cache-" + Date.now();
 var filesToCache = [
-  "/",
   "index.html",
   "build/bundle.css",
   "build/bundle.js",
@@ -36,6 +35,7 @@ self.addEventListener("activate", e => {
   );
 });
 self.addEventListener("fetch", e => {
+  if (e.request.method !== 'GET') return;
   e.respondWith(
     (async function() {
       const response = await caches.match(e.request);
