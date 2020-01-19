@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* purgecss start ignore */
 
 html, body {
 	position: relative;
@@ -24,3 +25,5 @@ input::placeholder {
   position: relative;
   top: -5px;
 }
+
+/* purgecss end ignore */
