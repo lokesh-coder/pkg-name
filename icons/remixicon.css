@@ -1,0 +1,30 @@
+
+/*
+* https://remixicon.com
+* https://github.com/Remix-Design/RemixIcon
+* Copyright RemixIcon.com
+* Released under the Apache License Version 2.0
+*/
+
+@font-face {
+    font-family: "remixicon";
+    src: url("remixicon.woff2?t=1579448536136") format("woff2"),
+    url("remixicon.woff?t=1579448536136") format("woff"),
+    url('remixicon.ttf?t=1579448536136') format('truetype'),
+    url('remixicon.svg?t=1579448536136#remixicon') format('svg');
+    font-display: swap;
+}
+
+[class^="ri-"], [class*="ri-"] {
+    font-family: 'remixicon' !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ri-checkbox-circle-fill:before { content: "\eb5d"; }
+.ri-close-circle-fill:before { content: "\eb73"; }
+.ri-error-warning-fill:before { content: "\ec5c"; }
+.ri-loader-5-fill:before { content: "\ee2d"; }
+.ri-search-line:before { content: "\eff7"; }
+.ri-github-fill:before { content: "\ed73"; }
