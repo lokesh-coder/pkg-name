@@ -59,6 +59,10 @@
   $: res = getMeta(result, input);
 </script>
 
+<svelte:head>
+  <title>{input || 'pkg-name'} | Check npm package name avaialbility</title>
+</svelte:head>
+
 <main class="flex h-full flex-col">
   <div class="flex flex-1 flex-col items-center justify-center border-b-4">
     <div class="lg:w-4/12 mx-auto text-center">

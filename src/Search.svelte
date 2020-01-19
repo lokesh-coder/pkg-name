@@ -47,7 +47,15 @@
 
 </div>
 
-<div class="text-center my-1 text-sm text-gray-500">
-  for org name use '@' prefix
-  <span class="text-blue-900">my-pkg, @my-org</span>
+<div class="text-center mt-2 text-sm text-gray-500">
+  Use '@' prefix for Org name. eg:
+  <span class="text-gray-700 ml-1">@my-org</span>
+  &middot;
+  <a
+    class="text-blue-500"
+    href="https://github.com/lokesh-coder/pkg-name"
+    target="_blank"
+  >
+    Github repo
+  </a>
 </div>
