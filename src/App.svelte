@@ -57,6 +57,10 @@
   };
 
   $: res = getMeta(result, input);
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
 </script>
 
 <svelte:head>
