@@ -32,7 +32,7 @@
 <div class="container">
   <i class="ri-search-line absolute mx-4 text-blue-400 text-2xl"></i>
   <input
-    placeholder="package name..."
+    placeholder="type package name..."
     on:keyup="{handler}"
     bind:value="{keyword}"
     spellcheck="false"
